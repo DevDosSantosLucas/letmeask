@@ -1,12 +1,10 @@
-import firebase from 'firebase';
-import { useState,useEffect,createContext } from 'react';
-import {BrowserRouter,Route} from'react-router-dom';
+import {BrowserRouter,Route, Switch} from'react-router-dom';
 
 import { Home } from "./pages/Home";
 import { NewRoom } from "./pages/NewRoom";
-import { auth } from './services/firebase';
 
 import {AuthContextProvider} from './contexts/AuthContext';
+import { Room } from './pages/Room';
 
 
 
@@ -16,8 +14,11 @@ function App() {
 
     <BrowserRouter>
     <AuthContextProvider>
-      <Route path='/' exact component = {Home} />
-      <Route path='/rooms/new' component = {NewRoom} />
+        <Switch>
+          <Route path='/' exact component = {Home} />
+          <Route path='/rooms/new' component = {NewRoom} />
+          <Route path='/rooms/:id' component = {Room} />
+        </Switch>
       </AuthContextProvider>
     </BrowserRouter>
 
