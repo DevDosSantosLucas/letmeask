@@ -5,8 +5,8 @@
 - [SOBRE](#-sobre)
 - [TECNOLOGIAS UTILIZADAS](#-TECNOLOGIAS-UTILIZADAS)
 - [COMO BAIXAR O PROJETO](#-COMO-BAIXAR-O-PROJETO)
-- REALTIME DATABASE FIREBASE
-- ARQUIVO env.local
+- [REALTIME DATABASE FIREBASE](#-REALTIME-DATABASE-FIREBASE)
+- [ARQUIVO env.local](#-ARQUIVO-env.local)
 
 <h2 align = "center" >
    <a href = "https://letmeask-e0311.web.app/"> Clique aqui para acessar o projeto em produção</a>
@@ -35,7 +35,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
    - [ ] RESPONSIVIDADE
    - [ ] LOGOUT DO GOOGLE
    - [ ] DASHBOARD DO USUÁRIO
-   - [ ] TEMA DARK
+   - [ ] TEMAS NAS SALAS
+   - [ ] LOGO DO EVENTO DA SALAS
    
 
 ## 📁 COMO BAIXAR O PROJETO
@@ -63,7 +64,10 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 
 ## 🗃 REALTIME DATABASE FIREBASE
-   Em https://console.firebase.google.com/ na aba de **regras** do **Realtime Database** insira o código abaixo:
+   
+   crie um projeto de Authenticação no [Firebase](https://console.firebase.google.com/) 
+
+Em https://console.firebase.google.com/ na aba de **regras** do **Realtime Database** insira o código abaixo:
 ```js
 {
   "rules": {
@@ -87,12 +91,34 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 }
 ```
 ## ARQUIVO env.local
-   Crie uma pasta env.local em seu projeto <br>
-   Documentação [React Firebase](https://react-firebase-js.com/docs/react-firebase-auth/getting-started#get-your-firebase-config)
    
-   ```env
-   KEY=XXXXXXXXX
+   Documentação [React Firebase](https://react-firebase-js.com/docs/react-firebase-auth/getting-started#get-your-firebase-config)<br>
+   
+      📁 **src/services/firebase.ts** nesse arquivo fica as configuraçoẽs do Firebase 
+   ```js
+   const firebaseConfig = {
+    apiKey:process.env.REACT_APP_API_KEY,
+    authDomain:process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL:process.env.REACT_APP_DATABASE_URL,
+    projectId:process.env.REACT_APP_PROJECT_ID,
+    storageBucket:process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId:process.env.REACT_APP_APP_ID,
+  };
    ```
+   
+   Crie uma pasta env.local em seu projeto com o código abaixo  coloque seus dados  entre as "aspas"
+   📁 env.local
+   ```env
+   REACT_APP_API_KEY=""
+   REACT_APP_AUTH_DOMAIN=""
+   REACT_APP_DATABASE_URL=""
+   REACT_APP_PROJECT_ID=""
+   REACT_APP_STORAGE_BUCKET=""
+   REACT_APP_MESSAGING_SENDER_ID=""
+   REACT_APP_APP_ID=""
+   ```
+
    
    ---
    👨🏻‍💻 Desenvolvido por Lucas Ribeiro dos Santos
