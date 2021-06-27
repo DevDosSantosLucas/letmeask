@@ -1,3 +1,22 @@
+<h1 align = "center" >
+   <img = src = "../src/assets/images/logo.svg" alt = "Logo LetmeAsk" />
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
