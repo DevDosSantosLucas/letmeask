@@ -1,71 +1,70 @@
 <h1 align = "center" >
-   <img = src = "../src/assets/images/logo.svg" alt = "Logo LetmeAsk" />
+   <img src = "./src/assets/images/logo.svg" alt = "Logo LetmeAsk" />
+</h1>
+
+- [SOBRE](#-sobre)
+- [TECNOLOGIAS UTILIZADAS](#-TECNOLOGIAS-UTILIZADAS)
+- [COMO BAIXAR O PROJETO](#-COMO-BAIXAR-O-PROJETO)
+- REALTIME DATABASE FIREBASE
+- ARQUIVO env.local
+
+<h2 align = "center" >
+   <a href = "https://letmeask-e0311.web.app/"> Clique aqui para acessar o projeto em produção</a>
+</h2>
+ 
+<h1 align = "center" >
+   <img = src = "" alt = "Gif do desenvolvimento" />   
 </h1>
 
 
+## ℹ️ SOBRE
+
+O projeto **Letmeask** é um site desenvolvido junto com a **[Rocketseat](https://rocketseat.com.br/) na edição da NLW Together**!
+O objetivo do desenvolvimento é disponibilizar aos geradores de conteúdos, a criação de salas para perguntas para para usuários poderem fazer perguntas e o criador da sala poder responder em suas lives. As perguntas tem opção de 'likes', caso outros usuários tenha interesse na pergunta, deixando o gerador de conteúdo saber qual pergunta seus ouvintes estão mais interessados em saber uma resposta.
+- [Prototipo realizado pela Rocketseat](https://www.figma.com/file/NnyaLK9X0J08pJFpmNB9m9/Letmeask-(Copy)?node-id=45%3A1771)
+
+## 💻 TECNOLOGIAS UTILIZADAS
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Firebase](https://firebase.google.com/docs)
+
+## 🏆 LEVANDO PARA O PRÓXIMO NÍVEL
+   Metas para levar o projeto ao próximo nível :
+   - [ ] RESPONSIVIDADE
+   - [ ] LOGOUT DO GOOGLE
+   - [ ] DASHBOARD DO USUÁRIO
+   - [ ] TEMA DARK
+   
+
+## 📁 COMO BAIXAR O PROJETO
+```bash
+   # Crie uma pasta para o projeto
+   $ mkdir nome_da_sua_pasta
+   
+   # Entre na pasta criada
+   $ cd nome_da_sua_pasta
+   
+   # Clone o repositório
+   $ git clone https://github.com/DevDosSantosLucas/letmeask.git
+   
+   # Abra a pasta
+   $ cd letmeask
+   
+   # Instale as dependências
+   $ yarn install
+   
+   # iniciar o projeto
+   $ yarn start
+````
+   O projeto será aberto em seu navegador padrão em :
+   https://localhosts:3000
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-## REALTIME DATABASE FIREBASE
-
+## 🗃 REALTIME DATABASE FIREBASE
+   Em https://console.firebase.google.com/ na aba de **regras** do **Realtime Database** insira o código abaixo:
+```js
 {
   "rules": {
     "rooms": {
@@ -79,10 +78,22 @@ To learn React, check out the [React documentation](https://reactjs.org/).
           ".write": "auth != null && (!data.exists() || data.parent().child('authorId').val() == auth.id)",
           "likes": {
             ".read": true,
-            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",  
+            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)"
           }
         }
       }
     }
   }
 }
+```
+## ARQUIVO env.local
+   Crie uma pasta env.local em seu projeto <br>
+   Documentação [React Firebase](https://react-firebase-js.com/docs/react-firebase-auth/getting-started#get-your-firebase-config)
+   
+   ```env
+   KEY=XXXXXXXXX
+   ```
+   
+   ---
+   👨🏻‍💻 Desenvolvido por Lucas Ribeiro dos Santos
+
