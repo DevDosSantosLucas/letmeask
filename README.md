@@ -33,7 +33,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 ## 🏆 LEVANDO PARA O PRÓXIMO NÍVEL
    Metas para levar o projeto ao próximo nível :
    - [ ] RESPONSIVIDADE
-   - [ ] LOGOUT DO GOOGLE
+   - [x] LOGOUT DO GOOGLE
    - [ ] DASHBOARD DO USUÁRIO
    - [ ] TEMAS NAS SALAS
    - [ ] LOGO DO EVENTO DA SALAS
