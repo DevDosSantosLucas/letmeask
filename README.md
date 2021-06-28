@@ -2,22 +2,22 @@
    <img src = "./src/assets/images/logo.svg" alt = "Logo LetmeAsk" />
 </h1>
 
-- [SOBRE](#-sobre)
+- [DESCRIÇÃO](#-DESCRIÇÃO)
 - [TECNOLOGIAS UTILIZADAS](#-TECNOLOGIAS-UTILIZADAS)
 - [COMO BAIXAR O PROJETO](#-COMO-BAIXAR-O-PROJETO)
 - [REALTIME DATABASE FIREBASE](#-REALTIME-DATABASE-FIREBASE)
-- [ARQUIVO env.local](#-ARQUIVO-env.local)
+- [ARQUIVO](#-ARQUIVO)
 
 <h2 align = "center" >
    <a href = "https://letmeask-e0311.web.app/"> Clique aqui para acessar o projeto em produção</a>
 </h2>
  
-<h1 align = "center" >
-   <img = src = "" alt = "Gif do desenvolvimento" />   
-</h1>
+![Screenshot_20210628_175051-1](https://user-images.githubusercontent.com/37936745/123702357-65f19a00-d839-11eb-89fe-46dc7587487c.png)
 
 
-## ℹ️ SOBRE
+
+
+## ℹ️ DESCRIÇÃO
 
 O projeto **Letmeask** é um site desenvolvido junto com a **[Rocketseat](https://rocketseat.com.br/) na edição da NLW Together**!
 O objetivo do desenvolvimento é disponibilizar aos geradores de conteúdos, a criação de salas para perguntas para para usuários poderem fazer perguntas e o criador da sala poder responder em suas lives. As perguntas tem opção de 'likes', caso outros usuários tenha interesse na pergunta, deixando o gerador de conteúdo saber qual pergunta seus ouvintes estão mais interessados em saber uma resposta.
@@ -90,7 +90,8 @@ Em https://console.firebase.google.com/ na aba de **regras** do **Realtime Datab
   }
 }
 ```
-## ARQUIVO env.local
+## ARQUIVO
+env.local
    
    Documentação [React Firebase](https://react-firebase-js.com/docs/react-firebase-auth/getting-started#get-your-firebase-config)<br>
    
@@ -121,5 +122,5 @@ Em https://console.firebase.google.com/ na aba de **regras** do **Realtime Datab
 
    
    ---
-   👨🏻‍💻 Desenvolvido por Lucas Ribeiro dos Santos
+   👨🏻‍💻 Desenvolvido por **Lucas Ribeiro dos Santos** junto a **Rocketseat** na **NLW Togeteher** 
 
