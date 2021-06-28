@@ -19,5 +19,6 @@ const firebaseConfig = {
 
  const auth = firebase.auth();
  const database = firebase.database();
+ const logout = firebase.auth().signOut();
 
  export {firebase,auth,database}

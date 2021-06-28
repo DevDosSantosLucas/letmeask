@@ -1,7 +1,7 @@
 import {ReactNode} from 'react'
 import cx from 'classnames'; //yarn add classnames
 
-import '../styles/question.scss';
+import './styles.scss';
 
 type QuestionProps={
     content: string;
@@ -27,7 +27,7 @@ export function Question({
         <div className={cx(
             'question',
             { answered: isAnswered},
-            { highlighted: isHighlighted && ! isAnswered} ,
+            { highlighted: isHighlighted && !isAnswered} ,
         )}>
         
         <p>{content}</p>
