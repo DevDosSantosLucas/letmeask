@@ -90,7 +90,7 @@ Em https://console.firebase.google.com/ na aba de **regras** do **Realtime Datab
   }
 }
 ```
-## ARQUIVO
+## 📁 ARQUIVO
 env.local
    
    Documentação [React Firebase](https://react-firebase-js.com/docs/react-firebase-auth/getting-started#get-your-firebase-config)<br>
@@ -123,4 +123,9 @@ env.local
    
    ---
    👨🏻‍💻 Desenvolvido por **Lucas Ribeiro dos Santos** junto a **Rocketseat** na **NLW Togeteher** 
+   
+   <h1>
+   <img scr = "https://www.behance.net/gallery/120381331/NLW-Together-Rocketseat-Identidade-visual/modules/688391235"
+        alt = "Logo NLWTogether" />
+   </h1>
 
