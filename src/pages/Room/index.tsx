@@ -1,14 +1,18 @@
-import logoImg from '../../assets/images/logo.svg';
+
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 
 import {useParams} from 'react-router-dom';
-import { RoomCode } from '../../components/RoomCode';
+
 import { FormEvent, useEffect, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
 import { useRoom } from '../../hooks/useRoom';
 import './styles.scss'
+import { Header } from '../../components/Header';
+
+
+import emptyQuestions from '../../assets/images/empty-questions.svg';
 
 
 
@@ -71,15 +75,11 @@ export function Room(){
         }
     }
 
+    
+
     return(
         <div id="page-room">
-            <header>
-                <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
-                    <RoomCode code = {roomId}/>
-                </div>
-            </header>
-
+            <Header />
             <main>
                 <div className="room-title">
                     <h1>Sala {title}</h1>
@@ -116,10 +116,11 @@ export function Room(){
                         
                     </div>
                 </form>
-
-               <div className="question-list">
-               {questions.map(question => {
+               {questions.length > 0 ? (
+                <div className="question-list">
+                {questions.map(question => {
                     return(
+                        
                         <Question 
                         content = {question.content}
                         author = {question.author}
@@ -145,6 +146,14 @@ export function Room(){
                     )
                 })}
                </div>
+               ):(
+                <div className = "empty-questions">
+                    <img src= {emptyQuestions} alt= "Não tem perguntas por aqui..." />
+                    <span>Não tem perguntas por aqui...</span>
+                    <p>Seja o primeiro a enviar uma pergunta!</p>
+                </div>
+               )}         
+               
             </main>
         </div>
     )

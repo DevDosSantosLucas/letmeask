@@ -2,6 +2,7 @@ import logoImg from '../../assets/images/logo.svg';
 import checkImg from '../../assets/images/check.svg';
 import answerImg from '../../assets/images/answer.svg';
 import deleteImg from '../../assets/images/delete.svg';
+import emptyQuestions from '../../assets/images/empty-questions.svg'
 
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
@@ -14,6 +15,7 @@ import { useState } from 'react';
 import '../../pages/Room/styles.scss'
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
+import { Header } from '../../components/Header';
 
 
 type RoomParams = {
@@ -29,14 +31,17 @@ export function AdminRoom(){
 
     // const {user} = useAuth();
     const {title,questions}= useRoom(roomId);
-    
-    async function handleEndRoom(){
-       await database.ref(`rooms/${roomId}`).update({
-           endedAt:new Date(),
-       })
 
-       history.push('/');
+    async function handleEndRoom(){
+
+        if(window.confirm('Tem certeza que você deseja Encerrar a Sala?')){
+            await database.ref(`rooms/${roomId}`).update({
+                endedAt:new Date(),
+            })
+            history.push('/dashboard');
+        }
     }
+
 
     async function handleCheckQuestionAsAnswered(questionId: string){
         await database.ref (`rooms/${roomId}/questions/${questionId}`).update({
@@ -61,27 +66,21 @@ export function AdminRoom(){
 
     return(
         <div id="page-room">
-            <header>
-                <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
-
-                    <div>
-                        <RoomCode code = {roomId}/>
-                        <Button 
-                        onClick = {handleEndRoom}
-                        isOutlined>Encerrar sala</Button>
-                    </div>
-                </div>
-            </header>
+           <Header />
 
             <main>
                 <div className="room-title">
-                    <h1>Sala {title}</h1>
+                    <h1>Sala: {title}</h1>
                     {
                     questions.length > 0 && 
                     <span>{questions.length} pergunta(s)</span>
                     }
+                    <Button 
+                        onClick = {handleEndRoom}
+                        isOutlined>Encerrar sala
+                    </Button>
                 </div>
+                { questions.length > 0 ? (
                <div className="question-list">
                {questions.map(question => {
                     return(
@@ -137,6 +136,14 @@ export function AdminRoom(){
                     )
                 })}
                </div>
+                ):(
+                    <div className = "empty-questions">
+                        <img src= {emptyQuestions} alt= "Não tem perguntas por aqui..." />
+                        <span>Não tem perguntas por aqui...</span>
+                        <p>Envie o código da sala para seus amigos envar uma pergunta!</p>
+                    </div>
+                   )}  
+
             </main>
         </div>
     )

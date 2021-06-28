@@ -1,5 +1,6 @@
 
 import { createContext ,ReactNode, useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 import { auth,firebase } from "../services/firebase";
 
 type User = {
@@ -11,6 +12,7 @@ type User = {
   type AuthContextType = {
     user: User |undefined;
     signWithGoogle: () => Promise<void>;
+    signOutGoogleAccount: () =>Promise<void>;
   }
 
   type AuthContextProviderProps ={
@@ -19,7 +21,6 @@ type User = {
 export const AuthContext  = createContext({}as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps){
-
 
     useEffect(()=>{
         const unsubscribe = auth.onAuthStateChanged(user =>{
@@ -42,10 +43,12 @@ export function AuthContextProvider(props: AuthContextProviderProps){
           unsubscribe();
         }
       },[]);
+      const history = useHistory();
     
       const [user,setUser] = useState<User>();
     
       async function signWithGoogle(){
+        
     
         const provider = new firebase.auth.GoogleAuthProvider();
     
@@ -67,11 +70,22 @@ export function AuthContextProvider(props: AuthContextProviderProps){
       }
 
       async function signOutGoogleAccount(){
-        await firebase
+
+        
+        await firebase.auth().signOut()
+        .then(function() {
+          console.log('Logout');
+        }, function(error) {
+          console.error( error );
+        });
+
+        history.push('/');
+        // window.location.reload();
+        
       }
 
     return(
-        <AuthContext.Provider value={{user,signWithGoogle}}>
+        <AuthContext.Provider value={{user,signWithGoogle,signOutGoogleAccount}}>
             {props.children}
         </AuthContext.Provider>
 
