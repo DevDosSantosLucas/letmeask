@@ -67,7 +67,7 @@ export function AuthContextProvider(props: AuthContextProviderProps){
       }
 
       async function signOutGoogleAccount(){
-        await firebase.auth().signOut();
+        await firebase
       }
 
     return(
