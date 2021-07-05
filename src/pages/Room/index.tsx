@@ -21,6 +21,7 @@ import emptyQuestions from '../../assets/images/empty-questions.svg';
 
 type RoomParams = {
     id: string;
+    color_page:string;
 }
 
 export function Room(){
@@ -31,7 +32,7 @@ export function Room(){
 
     const {user} = useAuth();
     const [newQuestion, setNewQuestion] = useState('');
-    const {title,questions}= useRoom(roomId);
+    const {title,questions,colorPage}= useRoom(roomId);
 
 
    
@@ -78,7 +79,7 @@ export function Room(){
     
 
     return(
-        <div id="page-room">
+        <div id="page-room" style ={{background: colorPage}}>
             <Header />
             <main>
                 <div className="room-title">

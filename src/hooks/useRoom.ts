@@ -29,10 +29,14 @@ type QuestionType = {
 
 }
 
+
 export function useRoom(roomId :string){
     const {user} = useAuth();
     const [questions,setQuestions] = useState<QuestionType[]>([]);
     const [title,setTitle] = useState('');
+    const [colorPage,setColorPage] = useState('#f5f5f5');
+
+
 
     useEffect(()=>{
         const roomRef = database.ref(`rooms/${roomId}`);
@@ -40,6 +44,7 @@ export function useRoom(roomId :string){
          roomRef.on('value',room =>{
 
             const databaseRoom = room.val();
+
             const firebaseQuestions :FirebaseQuestions = databaseRoom.questions ??{} ;
             const parsedQuestions = Object.entries(firebaseQuestions).map(([key,value])=>{
                 return {
@@ -54,11 +59,19 @@ export function useRoom(roomId :string){
             })
             setTitle(databaseRoom.title)
             setQuestions(parsedQuestions)
-        })
+            setColorPage(databaseRoom.colorPage)
+
+        }) 
 
         return()=> {
             roomRef.off('value');
         }
     },[roomId,user?.id])
-    return {title,questions}
+
+
+
+
+    return {title,questions,colorPage}
 }
+
+

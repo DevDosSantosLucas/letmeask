@@ -33,8 +33,8 @@ export function Header(){
             <header>
                 <div className="content">
                     <img src={logoImg} alt="Letmeask" />
-                    <RoomCode code = {roomId}/>
-                    
+                    {roomId?<RoomCode code = {roomId}/> : <div /> }
+                    {/* <RoomCode code = {roomId}/> */}     
 
                     {user?(
                     <>
@@ -47,7 +47,7 @@ export function Header(){
                                     type= "button"
                                     onClick = {()=>handleDashboard()}
                                     >
-                                Home
+                                Salas criadas
                                 </button>          
                                 <button
                                     type= "button"
