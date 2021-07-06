@@ -142,24 +142,19 @@ export function NewRoom(){
                 ):(
                     <div>
                     <strong>Salas Criadas:</strong>
-    
-                    {/* {
-                    userRooms.map(userRoom =>{
-                        
-                            // {userRoom.authorId ===user?.id ?
-                                return(
-                                <>  
-                                    <span>{userRoom.key}</span>
-                                    <span>sala1{userRoom.key.title}</span>
-                                </>
-                                // ):(
-                                //     <div/>
-                                )
-                            
-                            }
-                    // }
-                    )
-                    } */}
+
+                    {Object.keys(userRooms).map((id,index) =>{
+                        return(
+                            <tr key ={id}>
+                                <th scope ="row"> {index +1 }</th>
+                                {/* <td>{userRooms[id].title}</td> */}
+                                <td>{userRooms.key}</td>
+                                <td>{userRooms.key.title}</td>
+
+                           
+                            </tr>
+                        )
+                    })}
                     
 
                     </div>

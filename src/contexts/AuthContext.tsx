@@ -78,7 +78,8 @@ export function AuthContextProvider(props: AuthContextProviderProps){
         }, function(error) {
           console.error( error );
         });
-
+        setUser(undefined)
+       
         history.push('/');
         // window.location.reload();
         
